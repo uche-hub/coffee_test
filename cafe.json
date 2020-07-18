@@ -1,0 +1,74 @@
+{
+    "categories": [
+        {
+            "name": "Capucinno",
+            "contents": [
+                {
+                    "category": "Capucinno",
+                    "title": "Lattesso",
+                    "price": 150,
+                    "url": "images/coffee/coffee-1.png"
+                },
+                {
+                    "category": "Caffè Americano",
+                    "title": "Lattesso",
+                    "price": 250,
+                    "url": "images/coffee/coffee-7.png"
+                },
+                {
+                    "category": "Espresso",
+                    "title": "Lattes",
+                    "price": 350,
+                    "url": "images/coffee/coffee-3.png"
+                },
+                {
+                    "category": "Robusta",
+                    "title": "Coffee 4",
+                    "price": 400,
+                    "url": "images/coffee/coffee-4.png"
+                },
+                {
+                    "category": "Café Latte",
+                    "title": "Macchiatos",
+                    "price": 550,
+                    "url": "images/coffee/coffee-5.png"
+                }
+            ]
+        },
+        {
+            "name": "Americano",
+            "contents": [
+                {
+                    "category": "Flat White",
+                    "title": "Coffee 6",
+                    "price": 550,
+                    "url": "images/coffee/coffee-6.png"
+                },
+                {
+                    "category": "Hort Macchiato",
+                    "title": "Dollop",
+                    "price": 650,
+                    "url": "images/coffee/coffee-7.png"
+                },
+                {
+                    "category": "Affogato",
+                    "title": "Coffee 8",
+                    "price": 700,
+                    "url": "images/coffee/coffee-8.png"
+                },
+                {
+                    "category": "Mocha",
+                    "title": "Coffee 9",
+                    "price": 750,
+                    "url": "images/coffee/coffee-9.png"
+                },
+                {
+                    "category": "Ristretto",
+                    "title": "Coffee 10",
+                    "price": 800,
+                    "url": "images/coffee/coffee-10.png"
+                }
+            ]
+        }
+    ]
+}
