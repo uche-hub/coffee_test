@@ -13,9 +13,7 @@ class DetailScreen extends StatefulWidget {
   _DetailScreenState createState() => _DetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderStateMixin{
-  AnimationController _controller;
-
+class _DetailScreenState extends State<DetailScreen>{
   int _selectedPosition = -1;
   int _coffeePrice = 0;
   int _cupsCounter = 0;
@@ -25,19 +23,6 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
   String _coffeeCupImage = "images/coffee_cup_size.png";
   Coffee _coffee;
   Cart _cart;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 50),
-      lowerBound: 0.0,
-      upperBound: 0.1,
-    )..addListener(() {
-      setState(() {});
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -204,9 +189,7 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
               ],
             ),
           ),
-          AnimatedContainer(
-            duration: Duration(milliseconds: 150),
-            curve: Curves.bounceIn,
+          Container(
             margin: EdgeInsets.only(top: 30),
             padding: EdgeInsets.all(10),
             width: double.maxFinite,
@@ -217,13 +200,6 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
                   this._cupsCounter += 1;
                   this.price += _coffeePrice;
                 });
-                Duration time = Duration(milliseconds: 150);
-                Future.delayed(time, (){
-                  setState(() {
-
-                  });
-                });
-
               },
               child: Center(
                 child: Text(
@@ -294,7 +270,6 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
 //  );
 
   void _confirmOrderModalBottomSheet({String totalPrice, String numOfCups}) {
-    var scale = 1- _controller.value;
     showModalBottomSheet(
         context: context,
         builder: (builder) {
@@ -327,7 +302,7 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
                   Container(
                     margin: EdgeInsets.only(top: 30),
                     padding: EdgeInsets.all(10),
-                    width: 200,
+                    width: double.maxFinite,
                     height: 70,
                     child: FlatButton(
                       onPressed: () {
@@ -337,20 +312,12 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
                           arguments: _cart,
                         );
                       },
-                      child: GestureDetector(
-                        onTapDown: OnTapDown,
-                        onTapUp: OnTapUp,
-                        onTapCancel: OnTapCancel,
-                        child: Transform.scale(
-                          scale: scale,
-                          child: Center(
-                            child: Text(
-                              "Proceed to Checkout",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
+                      child: Center(
+                        child: Text(
+                          "Proceed to Checkout",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -365,16 +332,6 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
             ),
           );
         });
-  }
-
-  OnTapDown(TapDownDetails details){
-    _controller.forward();
-  }
-  OnTapUp(TapUpDetails details){
-    _controller.reverse();
-  }
-  OnTapCancel(){
-    _controller.reverse();
   }
 
   Widget _getEstimate(String totalPrice, String numOfCups) {
