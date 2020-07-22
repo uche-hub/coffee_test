@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void initState() {
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 800),
+      duration: Duration(milliseconds: 600),
     );
     _animation = Tween(
       begin: 0.0,
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   }
 
   startTimer() async{
-    var duration = Duration(seconds: 4);
+    var duration = Duration(seconds: 3);
     return Timer(duration, route);
   }
 
